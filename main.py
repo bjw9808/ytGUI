@@ -30,11 +30,11 @@ class mainGui:
         self.label3 = tk.Label(self.root, text="videoURL:")
         self.label4 = tk.Label(self.root, text="DownloadDir:")
         self.entry1 = tk.Entry(self.root)
-        self.entry1.insert('end', '127.0.0.1:')
+        self.entry1.insert('end', '127.0.0.1')
         self.entry2 = tk.Entry(self.root)
         self.entry2.insert('end', '10809')
         self.entry3 = tk.Entry(self.root, width=80)
-        self.entry3.insert('end', 'https://www.youtube.com/watch?v=g6zKtbomjDc&ab_channel=ElizabethRabbit')
+        self.entry3.insert('end', 'https://www.youtube.com/watch?v=BaW_jenozKc&ab_channel=PhilippHagemeister')
         self.entry4 = tk.Entry(self.root)
         self.entry4.insert('end', 'download/')
         self.button1 = tk.Button(self.root, text='start', command=self.btn1Cmd)
@@ -71,7 +71,7 @@ class mainGui:
 
     def dl(self, proxyIP, proxyPort, dlURL, downloadDir):
         ydl_opts = {
-            'proxy': proxyIP + proxyPort,
+            'proxy': "{0}:{1}".format(proxyIP, proxyPort),
             'paths': {'home': downloadDir},
             'ffmpeg_location': 'ffmpegwin64/bin',
             'cookiefile': 'cookies-youtube-com.txt',
