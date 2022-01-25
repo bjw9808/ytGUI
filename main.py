@@ -38,6 +38,7 @@ class mainGui:
         self.entry4 = tk.Entry(self.root)
         self.entry4.insert('end', 'download/')
         self.button1 = tk.Button(self.root, text='start', command=self.btn1Cmd)
+        self.button2 = tk.Button(self.root, text='stop', command=self.btn2Cmd)
         self.label1.pack()
         self.entry1.pack()
         self.label2.pack()
@@ -47,6 +48,7 @@ class mainGui:
         self.label4.pack()
         self.entry4.pack()
         self.button1.pack()
+        self.button2.pack()
         self.logText = TextOut(self.root)
         self.logText.pack()
         self.root.mainloop()
@@ -68,6 +70,9 @@ class mainGui:
             print(self.ip)
             print(self.port)
             print(self.url)
+
+    def btn2Cmd(self):
+        self.root.destroy()
 
     def dl(self, proxyIP, proxyPort, dlURL, downloadDir):
         ydl_opts = {
